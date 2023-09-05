@@ -4,7 +4,7 @@ Welcome to the Game of Life React implementation! This project showcases the cla
 
 ## Table of Contents
 
-- [About The Game](#About the Game)
+- [About The Game](#about-the-game)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
@@ -23,7 +23,6 @@ For a more in-depth understanding, you can read about the Game of Life on [Wikip
 - Interactive Grid: Play the game on a grid of cells, toggling their state between alive and dead using your mouse.
 - Automatic Generation Progression: Watch as the game advances through generations automatically, following the rules of the Game of Life.
 - Start/Stop Button: Take control with a pause/play button that lets you pause and resume the game at your own pace.
-- Clear Board Button: Reset the grid to its initial state whenever you want.
 - Clear Board Button: Reset the grid to its initial state whenever you want.
 - Randomize Button: Add an element of randomness by generating a random configuration of cells on the grid.
 - Increase/Decrease Speed Buttons: Adjust the speed of generation progression to observe the patterns at your preferred pace.
@@ -68,7 +67,7 @@ To play the Game of Life:
 
 ## Testing
 
-To ensure the correctness and functionality of the Game of Life implementation, we have included test cases that cover various aspects of the application. Follow these steps to run the tests:
+To ensure the correctness and functionality of the Game of Life implementation, test cases have been included to cover various aspects of the application. Follow these steps to run the tests:
 
 1. Navigate to the project directory:
 
@@ -86,14 +85,14 @@ npm test
 
 Client:
 
-React: Front-end library for building user interfaces.
-CSS: Styles for the user interface.
+- React: Front-end library for building user interfaces.
+- CSS: Styles for the user interface.
 
 Tools:
 
-Vite: Fast development build tool.
-TypeScript: Programming language for type-safe development.
-Jest: Testing framework for unit and integration testing.
+- Vite: Fast development build tool.
+- TypeScript: Programming language for type-safe development.
+- Jest: Testing framework for unit and integration testing.
 
 ## Contributing
 

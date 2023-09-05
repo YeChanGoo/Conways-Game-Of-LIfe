@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const Footer: React.FC = () => {
   return (
-    <div data-testid='footer-component' className='footer'>
+    <div className='footer'>
       <button>Randomize</button>
       <button>Clear Board</button>
       <button>{"Start"}</button>

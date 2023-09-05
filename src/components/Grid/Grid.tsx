@@ -1,34 +1,11 @@
-import { useState } from "react";
 import "./Grid.css";
 
-const Grid: React.FC = () => {
-  // initalize rows and cols to 50
-  const rows: number = 50;
-  const cols: number = 50;
+interface GridProps {
+  grid: number[][];
+  toggleCell: (x: number, y: number) => void;
+}
 
-  // Generate Grid
-  const generateGrid = (): number[][] => {
-    const grid = [];
-    for (let i = 0; i < rows; i++) {
-      // initalize with 0s
-      const row = Array(cols).fill(0);
-      grid.push(row);
-    }
-    return grid;
-  };
-
-  // Toggle cell alive or dead
-  const toggleCell = (x: number, y: number): void => {
-    setGrid((prev) => {
-      const newGrid = [...prev];
-      newGrid[x][y] = newGrid[x][y] === 1 ? 0 : 1;
-      return newGrid;
-    });
-  };
-
-  // State
-  const [grid, setGrid] = useState<number[][]>(() => generateGrid());
-
+const Grid: React.FC<GridProps> = ({ grid, toggleCell }) => {
   return (
     <div className='grid'>
       {grid.map((row, i) => (

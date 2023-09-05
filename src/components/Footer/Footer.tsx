@@ -7,6 +7,9 @@ interface FooterProps {
   start: boolean;
   onStartWithRandomGrid: () => void;
   onClear: () => void;
+  speed: number;
+  increaseSpeed: () => void;
+  decreaseSpeed: () => void;
 }
 
 const Footer: React.FC<FooterProps> = ({
@@ -14,16 +17,29 @@ const Footer: React.FC<FooterProps> = ({
   start,
   onStartWithRandomGrid,
   onClear,
+  speed,
+  increaseSpeed,
+  decreaseSpeed,
 }) => {
+  // Updates per second based on speed
+  const updatesPerSecond: number = 1000 / speed;
+  // Determine if the speed is considered high for a fire emoji
+  const isSpeedHigh: boolean = updatesPerSecond >= 2.5;
+
   return (
-    <div className='footer'>
+    <div className='footer' data-testid='footer-component'>
       <button onClick={() => onRandom()}>Random</button>
       <button onClick={() => onClear()}>Clear Board</button>
       <button onClick={() => onStartWithRandomGrid()}>
         {start ? "Stop" : "Start"}
       </button>
-      <button>Increase Speed</button>
-      <button>Decrease Speed</button>
+      <button onClick={increaseSpeed}>Increase Speed</button>
+      <button onClick={decreaseSpeed}>Decrease Speed</button>
+      <span className={`speed-text ${isSpeedHigh ? "high-speed" : ""}`}>
+        {" "}
+        Speed: {updatesPerSecond.toFixed(2)} updates per second
+        {isSpeedHigh && " 🔥"}
+      </span>
     </div>
   );
 };

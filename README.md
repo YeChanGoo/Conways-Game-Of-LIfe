@@ -6,6 +6,7 @@ Welcome to the Game of Life React implementation! This project showcases the cla
 
 - [About The Game](#about-the-game)
 - [Features](#features)
+- [Structure](#structure)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Testing](#testing)
@@ -26,6 +27,38 @@ For a more in-depth understanding, you can read about the Game of Life on [Wikip
 - Clear Board Button: Reset the grid to its initial state whenever you want.
 - Randomize Button: Add an element of randomness by generating a random configuration of cells on the grid.
 - Increase/Decrease Speed Buttons: Adjust the speed of generation progression to observe the patterns at your preferred pace.
+
+## Structure
+
+├── README.md
+├── index.html
+├── jest.config.ts
+├── package-lock.json
+├── package.json
+├── src
+│ ├── App.css
+│ ├── App.test.tsx
+│ ├── App.tsx
+│ ├── components
+│ │ ├── Footer
+│ │ │ ├── Footer.css
+│ │ │ ├── Footer.test.tsx
+│ │ │ └── Footer.tsx
+│ │ ├── Grid
+│ │ │ ├── Grid.css
+│ │ │ ├── Grid.test.tsx
+│ │ │ └── Grid.tsx
+│ │ └── Header
+│ │ ├── Header.css
+│ │ ├── Header.test.tsx
+│ │ └── Header.tsx
+│ ├── hooks
+│ │ ├── useGrid.test.tsx
+│ │ └── useGrid.ts
+│ └── main.tsx
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
 
 ## Getting Started
 

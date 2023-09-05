@@ -105,4 +105,21 @@ describe("useGrid Hook", () => {
     expect(result.current.grid[1][1]).toBe(1);
     expect(result.current.grid[1][2]).toBe(1);
   });
+
+  // Test to see if the hook can increase and decrease speed
+  it("should increase and decrease speed", () => {
+    const { result } = renderHook(() => useGrid(3, 3));
+
+    act(() => {
+      result.current.increaseSpeed();
+    });
+
+    expect(result.current.speed).toBe(900);
+
+    act(() => {
+      result.current.decreaseSpeed();
+    });
+
+    expect(result.current.speed).toBe(1000);
+  });
 });

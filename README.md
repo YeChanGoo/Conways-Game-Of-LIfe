@@ -30,6 +30,7 @@ For a more in-depth understanding, you can read about the Game of Life on [Wikip
 
 ## Structure
 
+```
 ├── README.md
 ├── index.html
 ├── jest.config.ts
@@ -59,6 +60,7 @@ For a more in-depth understanding, you can read about the Game of Life on [Wikip
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
+```
 
 ## Getting Started
 

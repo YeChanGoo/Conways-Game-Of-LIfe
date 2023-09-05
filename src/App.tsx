@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/Footer/Footer";
 import Grid from "./components/Grid/Grid";
 import Header from "./components/Header/Header";
 
@@ -7,6 +8,7 @@ const App = () => {
     <div className='app-container'>
       <Header />
       <Grid />
+      <Footer />
     </div>
   );
 };

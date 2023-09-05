@@ -10,6 +10,9 @@ export interface GridOperations {
   toggleCell: (x: number, y: number) => void;
   startWithRandomGrid: () => void;
   clearGrid: () => void;
+  increaseSpeed: () => void;
+  decreaseSpeed: () => void;
+  speed: number;
 }
 const useGrid = (rows: number, cols: number): GridOperations => {
   // Generate Grid
@@ -27,6 +30,7 @@ const useGrid = (rows: number, cols: number): GridOperations => {
   const [grid, setGrid] = useState<number[][]>(() => generateGrid());
   const [start, setStart] = useState<boolean>(false);
   const simulationInterval = useRef<NodeJS.Timeout | null>(null);
+  const [speed, setSpeed] = useState<number>(1000);
 
   // Constants
   const positions = useMemo(
@@ -43,6 +47,7 @@ const useGrid = (rows: number, cols: number): GridOperations => {
     []
   );
 
+  // Grid functionalities
   const randomGrid = (): void => {
     const newGrid = [];
     for (let i = 0; i < rows; i++) {
@@ -79,7 +84,7 @@ const useGrid = (rows: number, cols: number): GridOperations => {
         }
       }
     }
-    return true; // Return true if the loop completes without finding any alive cells
+    return true;
   };
 
   // Toggle cell alive or dead
@@ -99,6 +104,7 @@ const useGrid = (rows: number, cols: number): GridOperations => {
         const newX = x + dx;
         const newY = y + dy;
         if (
+          // Checking for out of bounds
           newX >= 0 &&
           newX < rows &&
           newY >= 0 &&
@@ -141,12 +147,21 @@ const useGrid = (rows: number, cols: number): GridOperations => {
     });
   }, [rows, cols, countLiveNeighbors]);
 
+  // Speed logic
+  const increaseSpeed = (): void => {
+    setSpeed((prevSpeed) => Math.max(100, prevSpeed - 100)); // Decrease interval
+  };
+
+  const decreaseSpeed = (): void => {
+    setSpeed((prevSpeed) => prevSpeed + 100); // Increase interval
+  };
+
   // UseEffect for simulation control
   useEffect(() => {
     if (start) {
       simulationInterval.current = setInterval(() => {
         computeNextGeneration();
-      }, 1000); // Use the speed state here
+      }, speed);
     } else if (!start && simulationInterval.current) {
       clearInterval(simulationInterval.current);
       simulationInterval.current = null;
@@ -157,7 +172,7 @@ const useGrid = (rows: number, cols: number): GridOperations => {
         clearInterval(simulationInterval.current);
       }
     };
-  }, [start, computeNextGeneration]); // Add speed as a dependency
+  }, [start, speed, computeNextGeneration]);
 
   return {
     grid,
@@ -169,6 +184,9 @@ const useGrid = (rows: number, cols: number): GridOperations => {
     toggleCell,
     startWithRandomGrid,
     clearGrid,
+    speed,
+    increaseSpeed,
+    decreaseSpeed,
   };
 };
 

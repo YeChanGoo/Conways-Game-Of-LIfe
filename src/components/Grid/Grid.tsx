@@ -7,7 +7,7 @@ interface GridProps {
 
 const Grid: React.FC<GridProps> = ({ grid, toggleCell }) => {
   return (
-    <div className='grid'>
+    <div className='grid' data-testid='grid-component'>
       {grid.map((row, i) => (
         <div className='row' key={i}>
           {row.map((cell, j) => (

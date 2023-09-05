@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import useGrid, { GridOperations } from "./hooks/useGrid";
 
 const App = () => {
+  // Destructure grid functions and data from custom hook
   const {
     grid,
     randomGrid,
@@ -13,6 +14,9 @@ const App = () => {
     toggleCell,
     startWithRandomGrid,
     clearGrid,
+    speed,
+    increaseSpeed,
+    decreaseSpeed,
   } = useGrid(50, 50) as GridOperations;
 
   return (
@@ -25,6 +29,9 @@ const App = () => {
         start={start}
         onStartWithRandomGrid={startWithRandomGrid}
         onClear={clearGrid}
+        speed={speed}
+        increaseSpeed={increaseSpeed}
+        decreaseSpeed={decreaseSpeed}
       />
     </div>
   );

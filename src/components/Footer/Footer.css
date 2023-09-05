@@ -45,3 +45,17 @@ button:hover {
 button:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
+
+.speed-text {
+  display: block; 
+  text-align: center;
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+  font-size: 16px; 
+  color: #333;
+  font-weight: bold;
+}
+
+.high-speed {
+  color: #ff5733;
+}
